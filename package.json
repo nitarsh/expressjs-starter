@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "express": "^4.16.3",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
@@ -10,6 +12,6 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "NODE_ENV=TEST mocha --recursive"
   }
 }
