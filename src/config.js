@@ -1,4 +1,4 @@
-const config = {
+const cfg = {
   COMMON: {
     dbOptions: {
       host: "localhost",
@@ -28,19 +28,18 @@ const config = {
   PROD: {}
 };
 
-const getConfig = configName => {
-  if (process.env.hasOwnProperty(configName)) return process.env[configName];
+//
+const config = {
+  get: configName => {
+    if (process.env.hasOwnProperty(configName)) return process.env[configName];
 
-  const stage = process.env.NODE_ENV || "DEV";
-  if (config[stage].hasOwnProperty(configName))
-    return config[stage][configName];
+    const stage = process.env.NODE_ENV || "DEV";
+    if (cfg[stage].hasOwnProperty(configName)) return cfg[stage][configName];
 
-  if (config.COMMON.hasOwnProperty(configName))
-    return config.COMMON[configName];
+    if (cfg.COMMON.hasOwnProperty(configName)) return cfg.COMMON[configName];
 
-  throw Error(`Cannot find config: ${configName}`);
+    throw Error(`Cannot find config: ${configName}`);
+  }
 };
 
-module.exports = {
-  getConfig
-};
+module.exports = config;

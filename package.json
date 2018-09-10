@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.16.3",
+    "migrate": "^1.6.1",
     "pg": "^7.4.3",
     "pg-promise": "^8.4.6",
     "sequelize": "^4.38.0"
